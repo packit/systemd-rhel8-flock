@@ -1,0 +1,7 @@
+specfile_path: packaging/rpm/systemd.spec
+synced_files:
+  - .packit.yaml
+  - src: packaging/rpm/systemd.spec
+    dest: systemd.spec
+upstream_project_name: systemd
+downstream_package_name: systemd
