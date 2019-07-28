@@ -1,0 +1,25 @@
+specfile_path: packaging/rpm/systemd.spec
+synced_files:
+  - .packit.yaml
+  - src: packaging/rpm/systemd.spec
+    dest: systemd.spec
+upstream_project_name: systemd
+downstream_package_name: systemd
+upstream_ref: v239-16
+
+jobs:
+- job: copr_build
+  trigger: pull_request
+  metadata:
+    targets:
+    - fedora-29-x86_64
+    - fedora-30-x86_64
+    - fedora-rawhide-x86_64
+
+- job: tests
+  trigger: pull_request
+  metadata:
+    targets:
+    - fedora-29-x86_64
+    - fedora-30-x86_64
+    - fedora-rawhide-x86_64
