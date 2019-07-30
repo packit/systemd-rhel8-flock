@@ -1,4 +1,4 @@
-#global gitcommit 10e465b5321bd53c1fc59ffab27e724535c6bc0f
+%global gitcommit de7436b02badc82200dc127ff190b8155769b8e7
 %{?gitcommit:%global gitcommitshort %(c=%{gitcommit}; echo ${c:0:7})}
 
 # We ship a .pc file but don't want to have a dep on pkg-config. We
@@ -12,7 +12,7 @@
 
 Name:           systemd
 Url:            http://www.freedesktop.org/wiki/Software/systemd
-Version:        84bbc24cb2443a8594972d88e92b203bc5adc765
+Version:        239
 Release:        13%{?dist}.5
 # For a breakdown of the licensing, see README
 License:        LGPLv2+ and MIT and GPLv2+
@@ -667,9 +667,6 @@ fi
 %files tests -f .file-list-tests
 
 %changelog
-* Mon Jul 29 2019 Frantisek Sumsal <fsumsal@redhat.com> - 84bbc24cb2443a8594972d88e92b203bc5adc765-13.5
-- Development snapshot
-
 * Thu May 02 2019 Lukas Nykryn <lnykryn@redhat.com> - 239-13.5
 - rebuilt
 
