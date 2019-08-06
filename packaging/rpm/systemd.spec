@@ -20,7 +20,7 @@ Summary:        System and Service Manager
 
 # download tarballs with "spectool -g systemd.spec"
 %if %{defined gitcommit}
-Source0:        https://github.com/systemd/systemd-stable/archive/%{?gitcommit}.tar.gz#/%{name}-%{gitcommitshort}.tar.gz
+Source0:        https://github.com/systemd/systemd/archive/%{?gitcommit}.tar.gz#/%{name}-%{gitcommitshort}.tar.gz
 %else
 Source0:        https://github.com/systemd/systemd/archive/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
 %endif
