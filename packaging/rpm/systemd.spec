@@ -95,7 +95,7 @@ BuildRequires:  gnu-efi gnu-efi-devel
 %endif
 BuildRequires:  libseccomp-devel
 BuildRequires:  git
-BuildRequires:  meson >= 0.43
+#BuildRequires:  meson >= 0.43
 BuildRequires:  gettext
 
 Requires(post): coreutils
@@ -251,7 +251,7 @@ License:       LGPLv2+
 They can be useful to test systemd internals.
 
 %prep
-%autosetup %{?gitcommit:-n %{name}-%{gitcommit}} -S git_am
+%autosetup %{?gitcommit:-n %{name}-%{gitcommit}} -S git
 
 %build
 %define ntpvendor %(source /etc/os-release; echo ${ID})
