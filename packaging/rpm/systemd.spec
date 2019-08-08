@@ -1,5 +1,5 @@
-%global gitcommit de7436b02badc82200dc127ff190b8155769b8e7
-%{?gitcommit:%global gitcommitshort %(c=%{gitcommit}; echo ${c:0:7})}
+%global commit de7436b02badc82200dc127ff190b8155769b8e7
+%{?commit:%global shortcommit %(c=%{commit}; echo ${c:0:7})}
 
 # We ship a .pc file but don't want to have a dep on pkg-config. We
 # strip the automatically generated dep here and instead co-own the
@@ -10,19 +10,23 @@
 %global system_unit_dir %{pkgdir}/system
 %global user_unit_dir %{pkgdir}/user
 
+%global source_name systemd-rhel8-flock
+
 Name:           systemd
 Url:            http://www.freedesktop.org/wiki/Software/systemd
 Version:        239
-Release:        13%{?dist}.5
+Release:        1
 # For a breakdown of the licensing, see README
 License:        LGPLv2+ and MIT and GPLv2+
 Summary:        System and Service Manager
 
+%global github_version %(c=%{version}; echo ${c}|tr '~' '-')
+
 # download tarballs with "spectool -g systemd.spec"
-%if %{defined gitcommit}
-Source0:        https://github.com/systemd/systemd/archive/%{?gitcommit}.tar.gz#/%{name}-%{gitcommitshort}.tar.gz
+%if %{defined commit}
+Source0:        https://github.com/packit-service/%{source_name}/archive/%{commit}/%{source_name}-%{shortcommit}.tar.gz
 %else
-Source0:        https://github.com/systemd/systemd/archive/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
+Source0:        https://github.com/systemd/systemd/archive/v%{github_version}/%{name}-%{github_version}.tar.gz
 %endif
 # This file must be available before %%prep.
 # It is generated during systemd build and can be found in src/core/.
@@ -251,7 +255,8 @@ License:       LGPLv2+
 They can be useful to test systemd internals.
 
 %prep
-%autosetup %{?gitcommit:-n %{name}-%{gitcommit}} -S git
+# temporarily hardcoted '{name}'
+%autosetup %{?commit:-n %{source_name}-%{commit}} -S git
 
 %build
 %define ntpvendor %(source /etc/os-release; echo ${ID})
