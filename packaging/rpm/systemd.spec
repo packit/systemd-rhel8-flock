@@ -256,7 +256,7 @@ They can be useful to test systemd internals.
 
 %prep
 # temporarily hardcoted '{name}'
-%autosetup %{?commit:-n %{source_name}-%{commit}} -p1 -Spatch
+%autosetup %{?commit:-n %{source_name}-%{commit}} -S git
 
 %build
 %define ntpvendor %(source /etc/os-release; echo ${ID})
