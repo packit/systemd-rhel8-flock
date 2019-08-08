@@ -21,7 +21,7 @@ Summary:        System and Service Manager
 %global github_version %(c=%{version}; echo ${c}|tr '~' '-')
 
 # download tarballs with "spectool -g systemd.spec"
-Source0:        https://github.com/packit-service/%{name}/archive/%{commit}/%{name}-%{shortcommit}.tar.gz
+Source0:        https://github.com/packit-service/%{name}/archive/%{gitcommit}/%{name}-%{shortcommit}.tar.gz
 # This file must be available before %%prep.
 # It is generated during systemd build and can be found in src/core/.
 Source1:        triggers.systemd
