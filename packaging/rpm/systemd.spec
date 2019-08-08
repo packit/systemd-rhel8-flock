@@ -93,7 +93,7 @@ BuildRequires:  gnu-efi gnu-efi-devel
 %endif
 BuildRequires:  libseccomp-devel
 BuildRequires:  git
-#BuildRequires:  meson >= 0.43
+BuildRequires:  meson >= 0.43
 BuildRequires:  gettext
 
 Requires(post): coreutils
