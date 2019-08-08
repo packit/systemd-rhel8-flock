@@ -1,4 +1,4 @@
-%global gitcommit de7436b02badc82200dc127ff190b8155769b8e7
+%global gitcommit 63ea8032f28052f7cda860e5324c0a83dee7ed23
 %global shortcommit %(c=%{gitcommit}; echo ${c:0:7})
 
 # We ship a .pc file but don't want to have a dep on pkg-config. We
