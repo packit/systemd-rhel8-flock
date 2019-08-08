@@ -250,7 +250,7 @@ They can be useful to test systemd internals.
 
 %prep
 # temporarily hardcoted '{name}'
-%autosetup -n %{name}-%{gitcommit}} -S git
+%autosetup -n %{name}-%{gitcommit} -S git
 
 %build
 %define ntpvendor %(source /etc/os-release; echo ${ID})
