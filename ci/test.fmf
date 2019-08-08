@@ -5,6 +5,8 @@
         how: fmf
         filter: "tier: 1 & distros: rhel-8"
         repository: "https://github.com/systemd-rhel/tests"
+    execute:
+        how: beakerlib
     prepare:
         how: ansible
         playbooks:
