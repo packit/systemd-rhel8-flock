@@ -5,7 +5,6 @@ synced_files:
     dest: systemd.spec
 upstream_project_name: systemd
 downstream_package_name: systemd
-upstream_ref: v239-16
 
 jobs:
 - job: copr_build
