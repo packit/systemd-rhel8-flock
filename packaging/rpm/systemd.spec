@@ -1,5 +1,5 @@
-%global commit de7436b02badc82200dc127ff190b8155769b8e7
-%{?commit:%global shortcommit %(c=%{commit}; echo ${c:0:7})}
+%global gitcommit de7436b02badc82200dc127ff190b8155769b8e7
+%global shortcommit %(c=%{gitcommit}; echo ${c:0:7})
 
 # We ship a .pc file but don't want to have a dep on pkg-config. We
 # strip the automatically generated dep here and instead co-own the
@@ -9,8 +9,6 @@
 %global pkgdir %{_prefix}/lib/systemd
 %global system_unit_dir %{pkgdir}/system
 %global user_unit_dir %{pkgdir}/user
-
-%global source_name systemd-rhel8-flock
 
 Name:           systemd
 Url:            http://www.freedesktop.org/wiki/Software/systemd
@@ -23,11 +21,7 @@ Summary:        System and Service Manager
 %global github_version %(c=%{version}; echo ${c}|tr '~' '-')
 
 # download tarballs with "spectool -g systemd.spec"
-%if %{defined commit}
-Source0:        https://github.com/packit-service/%{source_name}/archive/%{commit}/%{source_name}-%{shortcommit}.tar.gz
-%else
-Source0:        https://github.com/systemd/systemd/archive/v%{github_version}/%{name}-%{github_version}.tar.gz
-%endif
+Source0:        https://github.com/packit-service/%{name}/archive/%{commit}/%{name}-%{shortcommit}.tar.gz
 # This file must be available before %%prep.
 # It is generated during systemd build and can be found in src/core/.
 Source1:        triggers.systemd
@@ -256,7 +250,7 @@ They can be useful to test systemd internals.
 
 %prep
 # temporarily hardcoted '{name}'
-%autosetup %{?commit:-n %{source_name}-%{commit}} -S git
+%autosetup -n %{name}-%{gitcommit}} -S git
 
 %build
 %define ntpvendor %(source /etc/os-release; echo ${ID})
