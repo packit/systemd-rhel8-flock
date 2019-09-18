@@ -462,7 +462,9 @@ EOF
 
 #############################################################################################
 
-%include %{SOURCE1}
+# workaround https://github.com/packit-service/packit-service/issues/138
+# obviously this will break all the tests
+# %%include %%{SOURCE1}
 
 %pre
 getent group cdrom &>/dev/null || groupadd -r -g 11 cdrom &>/dev/null || :
