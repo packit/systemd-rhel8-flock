@@ -1,4 +1,4 @@
-%global commit de7436b02badc82200dc127ff190b8155769b8e7
+%global commit efb536d0cbe2e58f80e501d19999928c75e08f6a
 %{?commit:%global shortcommit %(c=%{commit}; echo ${c:0:7})}
 
 # We ship a .pc file but don't want to have a dep on pkg-config. We
@@ -14,7 +14,7 @@
 
 Name:           systemd
 Url:            http://www.freedesktop.org/wiki/Software/systemd
-Version:        239
+Version:        243
 Release:        1
 # For a breakdown of the licensing, see README
 License:        LGPLv2+ and MIT and GPLv2+
