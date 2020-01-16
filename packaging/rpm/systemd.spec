@@ -1,4 +1,4 @@
-%global commit efb536d0cbe2e58f80e501d19999928c75e08f6a
+%global commit c631c3d6a340c13adf05dc9b06bd7bd566bd6c9e
 %{?commit:%global shortcommit %(c=%{commit}; echo ${c:0:7})}
 
 # We ship a .pc file but don't want to have a dep on pkg-config. We
