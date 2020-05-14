@@ -40,7 +40,7 @@ class sd_dump_hashmaps(gdb.Command):
                                 dib_raw_addr = storage_ptr + (all_entry_sizes[h["type"]] * n_buckets)
 
                                 histogram = {}
-                                for i in xrange(0, n_buckets):
+                                for i in range(0, n_buckets):
                                         dib = int(dib_raw_addr[i])
                                         histogram[dib] = histogram.get(dib, 0) + 1
 
@@ -54,7 +54,7 @@ class sd_dump_hashmaps(gdb.Command):
                                 blocks = []
                                 current_len = 1
                                 prev = int(dib_raw_addr[0])
-                                for i in xrange(1, n_buckets):
+                                for i in range(1, n_buckets):
                                         dib = int(dib_raw_addr[i])
                                         if (dib == 255) != (prev == 255):
                                                 if prev != 255:
